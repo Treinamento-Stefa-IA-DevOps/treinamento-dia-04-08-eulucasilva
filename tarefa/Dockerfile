@@ -1,4 +1,4 @@
-#FROM python:3.8-slim
+#FROM 
 #FROM centos/python-36-centos7
 
 #COPY . /app
@@ -8,7 +8,7 @@
 #CMD ["uvicorn", "main:app","--host", "0.0.0.0", "--port", "80", "--reload"]
 
 
-FROM centos/python-36-centos7
+FROM python:3.8-slim
 
 COPY . /tarefa
 
