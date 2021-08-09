@@ -14,15 +14,18 @@ def titanic(*, Sex:int = Query(..., ge=0, le=1), Age:float = Query(..., gt=0.1),
     with open('model/Titanic.pkl', 'rb') as fid: 
         titanic = pickle.load(fid)
     
-    predicao = titanic.predict([[Sex, Age, Lifeboat, Pclass]]) 
-
-    #print (predicao)
-    survivor = bool(predicao)
-    #print (survivor)
+    predicao = titanic.predict([[Sex, Age, Lifeboat, Pclass]]).tolist() 
     mensagem = "Você morreria no Titanic!"
+
+    #print(mensagem)
+    #print (predicao)
+    survivor = bool(predicao[0])
+    #print (survivor)
+    
     if survivor:
         mensagem = "Predição realizada com sucesso: Você sobreviveria ao Titanic. Ufa!"
 
+    #print(mensagem)
     return {
         'survived': survivor,
         'status': 200,

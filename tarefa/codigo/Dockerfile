@@ -9,5 +9,5 @@ RUN pip install fastapi uvicorn
 RUN pip install pandas
 RUN pip install sklearn
 
-CMD ["uvicorn", "main:app","--host", "127.0.0.1", "--port", "8080", "--reload"]
+CMD ["uvicorn", "main:app","--host", "0.0.0.0", "--port", "80", "--reload"]
 
